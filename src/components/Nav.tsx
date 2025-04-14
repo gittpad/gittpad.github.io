@@ -1,10 +1,8 @@
 
 import { MegaMenu } from 'primereact/megamenu';
 import { MenuItem } from 'primereact/menuitem';
-import { Avatar } from 'primereact/avatar'
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import { useState } from 'react';
 
 
 export default function Nav() {
@@ -75,10 +73,10 @@ export default function Nav() {
         },
     ];
 
-    const [searchVal, setSearchVal] = useState("")
+    // const [searchVal, setSearchVal] = useState("")
 
     const start = <div style={{display:"flex", alignItems:"center"}}>
-    <img width={30} height={30} src='/gittpad.png' />
+    <img width={30} height={30} src='gittpad/gittpad.png' />
     <span style={{width:"8px", height:"20px", display:"block"}}></span>
     </div> 
     const end = <div style={{display: "flex", alignItems:"center", gap: '10px'}}>
