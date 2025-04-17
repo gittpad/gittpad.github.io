@@ -1,13 +1,21 @@
 import Tag from "./Tag"
 
-function Book() {
+interface Props{
+  img: string
+  tags: string[]
+}
+
+function Book(props: Props) {
 
   return (
-    <div style={{display: 'flex', flexDirection:"column"}}>
-        <img src="https://img.wattpad.com/cover/313739483-256-k577904.jpg" width={200} alt="" />
+    <div style={{display: 'flex', flexDirection:"column", gap:"4px"}}>
+        <img src={props.img} width={200} style={{borderRadius:"10px"}} alt="" />
         <div style={{overflowX:'scroll', width:'200px', display:'flex', gap:'4px', scrollbarWidth:"none"}}>
-            <Tag>Value</Tag>
-            <Tag>Dark</Tag>
+          {props.tags.map((item)=>{
+            return <Tag>{item}</Tag>;
+          })}
+            {/* <Tag>Value</Tag>
+            <Tag>Dark</Tag> */}
         </div>
     </div>
   )
