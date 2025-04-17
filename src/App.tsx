@@ -1,6 +1,7 @@
 import Nav from './components/Nav';
+import BookPage from './pages/BookPage';
 import HomePage from './pages/HomePage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
     <Router>
     <Nav  />  
       <Routes>
-        <Route path='/gittpad' element={<HomePage/>}/>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/books' element={<BookPage/>}/>
       </Routes>
     </Router>
     </div>
