@@ -7,7 +7,7 @@ interface Props {
 
 function Tag(props: Props) {
   return (
-    <div style={{background: "darkgrey", borderRadius:"100vw", padding:'4px 10px', fontSize:"smaller"}}>{props.children}</div>
+    <div style={{background: "lightgrey", borderRadius:"100vw", padding:'4px 10px', fontSize:"smaller"}}>{props.children}</div>
   )
 }
 
