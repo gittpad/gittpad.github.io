@@ -37,8 +37,12 @@ function ReadPage() {
     <div style={{display:'flex', maxWidth:'1000px', margin:'auto'}}>
 
         <div style={{position:'sticky', top:'20px', height:'fit-content', display:'flex', flexDirection:'column', alignItems:'center', gap:'6px'}}>
-            <Avatar icon="pi pi-user" size="xlarge" shape="circle" />
+            <Avatar icon="pi pi-user" image='https://img.wattpad.com/useravatar/mismatchedsockslife.128.544955.jpg' size="xlarge" shape="circle" />
+            <p>
             By - quazar joseph
+            </p>
+            <Button label="Follow" outlined icon='pi pi-user-plus' size="small" style={{fontSize:'smaller', padding:'6px 8px'}} severity="secondary" />
+
         </div>
 
 
