@@ -44,8 +44,6 @@ function ReadPage() {
             <Button label="Follow" outlined icon='pi pi-user-plus' size="small" style={{fontSize:'smaller', padding:'6px 8px'}} severity="secondary" />
 
         </div>
-
-
             <div style={{maxWidth:'700px', marginLeft:'2rem', padding:'10px', fontFamily:'"EB Garamond", serif', fontSize:'larger', background:'#ede6d4', paddingInline:'60px'}}><Markdown remarkPlugins={[[remarkGfm]]}>{markdown}</Markdown>
             <hr />
             <Button style={{width:"100%", background:'#6d685b', color:"white"}} label="Continue to next part" text rounded />
