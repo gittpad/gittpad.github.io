@@ -4,6 +4,7 @@ import { MenuItem } from 'primereact/menuitem';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { useMediaQuery } from 'react-responsive'
+import { Link } from 'react-router-dom';
 
 export default function Nav() {
     const items: MenuItem[] = [
@@ -77,7 +78,9 @@ export default function Nav() {
     // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     const start = <div style={{display:"flex", alignItems:"center"}}>
+        <Link to={"/#"}>
         <img width={30} height={30} src='img/gittpad.png' />
+        </Link>
         <span style={{width:"8px", height:"20px", display:"block"}}></span>
     </div> 
 
