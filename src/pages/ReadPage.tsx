@@ -1,13 +1,13 @@
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Button } from 'primereact/button';
 import {Avatar} from 'primereact/avatar';
 
 function ReadPage() {
 
     let {bookid, page} = useParams();
-
+    const navigate = useNavigate();
     const markdown = `"I'd assume you've gotten everything sorted out?" questioned Blayze.
 
 "Yes, Mr. Norman," Mr. James reassured, handing over the paper folder.
@@ -46,7 +46,7 @@ function ReadPage() {
         </div>
             <div style={{maxWidth:'700px', marginLeft:'2rem', padding:'10px', fontFamily:'"EB Garamond", serif', fontSize:'larger', background:'#ede6d4', paddingInline:'60px'}}><Markdown remarkPlugins={[[remarkGfm]]}>{markdown}</Markdown>
             <hr />
-            <Button style={{width:"100%", background:'#6d685b', color:"white"}} label="Continue to next part" text rounded />
+            <Button onClick={()=>navigate(`/read/${bookid}/${Number(page)+1}`)} style={{width:"100%", background:'#6d685b', color:"white"}} label="Continue to next part" text rounded />
         </div>
     </div>
 
