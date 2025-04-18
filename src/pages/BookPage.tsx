@@ -2,12 +2,14 @@
 // import remarkGfm from 'remark-gfm'
 import { useParams } from 'react-router-dom'
 import Book from '../components/Book'
-
+import { Button } from 'primereact/button';
 import { Skeleton } from 'primereact/skeleton';
-        
+import { useNavigate } from 'react-router-dom';
+
 function BookPage() {
 
   let {id} = useParams()
+  const navigate = useNavigate();
 //     const markdown = `# A demo of 
     
 
@@ -69,11 +71,12 @@ function BookPage() {
           <Skeleton width="5rem" className="mb-2"></Skeleton>
           <Skeleton height="2rem" className="mb-2"></Skeleton>
           <Skeleton width="10rem" height="4rem"></Skeleton>
-          <Skeleton className="mb-2"></Skeleton>
-          <Skeleton width="5rem" className="mb-2"></Skeleton>
+          
+          <Button onClick={()=>navigate('/read/test/1')} label="Read" severity="success" />
         </div>
       </div>
       <p>id is: {id}</p>
+
     </div>
     </>
   )
