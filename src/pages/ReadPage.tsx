@@ -1,6 +1,8 @@
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { useParams } from 'react-router-dom'
+import { Button } from 'primereact/button';
+import {Avatar} from 'primereact/avatar';
 
 function ReadPage() {
 
@@ -28,13 +30,24 @@ function ReadPage() {
   return (
     <div>
     <center>
-        <h1 style={{margin:'0', paddingTop:'10px'}}>Book: The Book of the Era{bookid}</h1>
+        <h1 style={{margin:'0', paddingTop:'10px'}}>Book: The Book of the Era {bookid} {page}</h1>
         <p style={{marginTop:'0', color:"grey"}}> - quazar joseph</p>
     <hr />
     </center>
-    <div style={{}}>
-        <div style={{maxWidth:'700px', margin:'auto', padding:'10px', fontFamily:'"EB Garamond", serif', fontSize:'larger', background:'#ede6d4', paddingInline:'60px'}}><Markdown remarkPlugins={[[remarkGfm]]}>{markdown}</Markdown></div>
+    <div style={{display:'flex', maxWidth:'1000px', margin:'auto'}}>
+
+        <div style={{position:'sticky', top:'20px', height:'fit-content', display:'flex', flexDirection:'column', alignItems:'center', gap:'6px'}}>
+            <Avatar icon="pi pi-user" size="xlarge" shape="circle" />
+            By - quazar joseph
+        </div>
+
+
+            <div style={{maxWidth:'700px', marginLeft:'2rem', padding:'10px', fontFamily:'"EB Garamond", serif', fontSize:'larger', background:'#ede6d4', paddingInline:'60px'}}><Markdown remarkPlugins={[[remarkGfm]]}>{markdown}</Markdown>
+            <hr />
+            <Button style={{width:"100%", background:'#6d685b', color:"white"}} label="Continue to next part" text rounded />
+        </div>
     </div>
+
     </div>
   )
 }
