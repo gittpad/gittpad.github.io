@@ -11,7 +11,6 @@ import { useCookies } from "react-cookie";
 import { Avatar } from 'primereact/avatar';
 import { Menu } from 'primereact/menu';
 import { useRef } from 'react';
-import { EnvironmentModuleGraph } from 'vite';
 
 export default function Nav() {
     const items: MenuItem[] = [
@@ -100,8 +99,7 @@ export default function Nav() {
 
       const loginItems: MenuItem[] = [
         {
-            label: 'Options',
-            style: {'fontSize':"smaller", padding:'10px'},
+            style: {padding:'0'},
             items: [
                 {
                     label: 'Log Out',
@@ -111,6 +109,16 @@ export default function Nav() {
                         event.originalEvent.type === 'click' && removeCookie("access_token")
                         window.location.reload();
                     },
+                },
+                {
+                    label: 'My Books',
+                    style: {'fontSize':"12px"},
+                    icon: 'pi pi-book'
+                },
+                {
+                    label: 'Bookmarks',
+                    style: {'fontSize':"12px"},
+                    icon: 'pi pi-bookmark'
                 },
                 {
                     label: 'Settings',
