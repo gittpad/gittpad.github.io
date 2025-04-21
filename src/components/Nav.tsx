@@ -18,34 +18,55 @@ export default function Nav() {
     const items: MenuItem[] = [
         {
             label: 'Browse',
-            icon: 'pi pi-box',
+            icon: 'pi pi-box', // Changed icon to be more relevant to genres
             items: [
-                [
+                [ // Row 1
                     {
-                        label: 'Living Room',
-                        items: [{ label: 'Accessories' }, { label: 'Armchair' }, { label: 'Coffee Table' }, { label: 'Couch' }, { label: 'TV Stand' }]
+                        label: 'Popular Fiction',
+                        items: [
+                            { label: 'Romance' },
+                            { label: 'Fanfiction' },
+                            { label: 'Fantasy' },
+                            { label: 'Werewolf' },
+                            { label: 'Teen Fiction' },
+                            { label: 'New Adult' }
+                        ]
                     }
                 ],
-                [
+                [ // Row 2
                     {
-                        label: 'Kitchen',
-                        items: [{ label: 'Bar stool' }, { label: 'Chair' }, { label: 'Table' }]
+                        label: 'Specific Genres',
+                        items: [
+                            { label: 'Historical Fiction' },
+                            { label: 'Paranormal' },
+                            { label: 'Science Fiction' },
+                            { label: 'Mystery' },
+                            { label: 'Thriller' },
+                            { label: 'Horror' }
+                        ]
                     },
-                    {
-                        label: 'Bathroom',
-                        items: [{ label: 'Accessories' }]
-                    }
                 ],
                 [
                     {
-                        label: 'Bedroom',
-                        items: [{ label: 'Bed' }, { label: 'Chaise lounge' }, { label: 'Cupboard' }, { label: 'Dresser' }, { label: 'Wardrobe' }]
+                        label: 'Format & Style',
+                        items: [
+                            { label: 'Short Story' },
+                            { label: 'Poetry' },
+                            { label: 'Contemporary Lit' },
+                            { label: 'Adventure' },
+                            { label: 'Humor' }
+                        ]
                     }
+
                 ],
-                [
+                [ // Row 3
                     {
-                        label: 'Office',
-                        items: [{ label: 'Me Case' }, { label: 'Cabinet' }, { label: 'Chair' }, { label: 'Desk' }, { label: 'Executive Chair' }]
+                        label: 'Community',
+                        items: [
+                            { label: 'LGBTQ+' },
+                            { label: 'Diverse Lit' },
+                            { label: 'Non-Fiction' }
+                        ]
                     }
                 ]
             ]
