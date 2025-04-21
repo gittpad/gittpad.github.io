@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ReadPage from './pages/ReadPage';
 import WritePage from './pages/WritePage';
+import './App.css'
 
 function App() {
 

@@ -7,29 +7,8 @@ function WritePage() {
 
     const ref = useRef<MDXEditorMethods>(null)
     
-const markdown = `
-# Markdown syntax guide
-
-## Headers
-
-# This is a Heading h1
-
-## This is a Heading h2
-
-###### This is a Heading h6
-
-## Emphasis
-
-*This text will be italic*
-*This will also be italic*
-
-**This text will be bold**
-***This will also be bold***
-
-*You **can** combine them*
-
-`
-
+const markdown = ``;
+const placeholder = <p style={{color:'gray', fontStyle:'italic'}}>unleash your imagination...</p>
 
 
   return (
@@ -40,15 +19,19 @@ const markdown = `
         console.log(data);  
         navigator.clipboard.writeText(data);
 }}>Get markdown</button>
-    <MDXEditor ref={ref} markdown={markdown} plugins={[headingsPlugin(), thematicBreakPlugin(), toolbarPlugin({
-          toolbarClassName: 'my-classname',
-          toolbarContents: () => (
-            <>
+        <div style={{maxWidth:'700px', minHeight: "1000px",flex:1, margin:'auto', padding:'20px', fontFamily:'"EB Garamond", serif', fontSize:'larger', background:'#ede6d4', paddingInline:'40px'}}>
+
+        <MDXEditor ref={ref} placeholder={placeholder} markdown={markdown} className='main-editor' plugins={[headingsPlugin(), thematicBreakPlugin(), toolbarPlugin({
+            toolbarClassName: 'my-toolbar',
+            toolbarContents: () => (
+                <>
               <UndoRedo />
               <BoldItalicUnderlineToggles />
             </>
           )
         })]} />
+        </div>
+        <br />
     </>
   )
 }

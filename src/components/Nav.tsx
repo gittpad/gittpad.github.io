@@ -93,7 +93,6 @@ export default function Nav() {
             localStorage.setItem('email', res.data.user.email)
             localStorage.setItem('image', res.data.user.image)
             setLoading(false);
-            window.location.reload()
           }).catch((err)=>{
             console.error(err);
           })
