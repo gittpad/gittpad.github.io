@@ -11,6 +11,7 @@ import { useCookies } from "react-cookie";
 import { Avatar } from 'primereact/avatar';
 import { Menu } from 'primereact/menu';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Nav() {
     const items: MenuItem[] = [
@@ -79,7 +80,7 @@ export default function Nav() {
             ]
         },
     ];
-
+    const navigate = useNavigate();
     const [cookie, setCookies, removeCookie] = useCookies(["access_token"]);
 
     const login = useGoogleLogin({
@@ -142,7 +143,7 @@ export default function Nav() {
     </div> 
 
     const end = <div style={{display: "flex", alignItems:"center", gap: '10px'}}>
-        <Button label={isDesktopOrLaptop ? "Create" : ""} icon="pi pi-plus" severity="success"  text size='small' />
+        <Button label={isDesktopOrLaptop ? "Create" : ""} onClick={()=>navigate('/write')} icon="pi pi-plus" severity="success"  text size='small' />
         {isDesktopOrLaptop && <InputText placeholder="Search" type="text" className="w-8rem sm:w-auto p-inputtext-sm" />}
 
         {isDesktopOrLaptop || <Button severity="secondary" icon="pi pi-search" text size="small"/>}
