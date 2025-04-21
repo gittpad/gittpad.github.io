@@ -1,5 +1,5 @@
 import '@mdxeditor/editor/style.css'
-import { MDXEditor, MDXEditorMethods, thematicBreakPlugin, UndoRedo, BoldItalicUnderlineToggles, toolbarPlugin } from '@mdxeditor/editor'
+import { MDXEditor, MDXEditorMethods, thematicBreakPlugin } from '@mdxeditor/editor'
 import { headingsPlugin } from '@mdxeditor/editor'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Button } from 'primereact/button';

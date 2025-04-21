@@ -10,7 +10,7 @@ import axios from 'axios';
 import { useCookies } from "react-cookie";
 import { Avatar } from 'primereact/avatar';
 import { Menu } from 'primereact/menu';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Nav() {
@@ -82,14 +82,17 @@ export default function Nav() {
     ];
     const navigate = useNavigate();
     const [cookie, setCookies, removeCookie] = useCookies(["access_token"]);
+    const [loading, setLoading] = useState(false);
 
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
+            setLoading(true);
           axios.get(`https://gittpad-api.vercel.app/auth?code=${tokenResponse['access_token']}`).then((res)=>{
             setCookies('access_token', res.data.token);
             localStorage.setItem('username', res.data.user.name)
             localStorage.setItem('email', res.data.user.email)
             localStorage.setItem('image', res.data.user.image)
+            setLoading(false);
             window.location.reload()
           }).catch((err)=>{
             console.error(err);
@@ -147,7 +150,7 @@ export default function Nav() {
         {isDesktopOrLaptop && <InputText placeholder="Search" type="text" className="w-8rem sm:w-auto p-inputtext-sm" />}
 
         {isDesktopOrLaptop || <Button severity="secondary" icon="pi pi-search" text size="small"/>}
-        {!cookie.access_token ? <Button label={isDesktopOrLaptop?"Enter":""} onClick={()=>login()} severity="secondary" icon="pi pi-sign-in" text size="small"/>: 
+        {!cookie.access_token ? <Button label={isDesktopOrLaptop?"Enter":""} onClick={()=>login()} loading={loading} severity="secondary" icon="pi pi-sign-in" text size="small"/>: 
         
         <>
         <Menu model={loginItems} style={{paddingBlock: '5px'}} popup ref={menuRight} id="popup_menu_right" popupAlignment="right" />
