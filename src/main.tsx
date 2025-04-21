@@ -5,11 +5,16 @@ import App from './App.tsx'
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primeicons/primeicons.css';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { CookiesProvider } from 'react-cookie';
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_CLIENT_ID}>
+      <CookiesProvider defaultSetOptions={{ path: '/' }}>
       <App />
-  </StrictMode>,
+      </CookiesProvider>
+    </GoogleOAuthProvider>
+  </StrictMode>
 )
