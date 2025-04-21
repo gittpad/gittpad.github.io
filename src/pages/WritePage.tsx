@@ -35,7 +35,11 @@ const markdown = `
   return (
     <>
     <span style={{display:'block', height:'10px'}}></span>
-    <button onClick={()=>console.log(ref.current?.getMarkdown())}>Get markdown</button>
+    <button onClick={()=>{
+        const data = ref.current?.getMarkdown() || "";
+        console.log(data);  
+        navigator.clipboard.writeText(data);
+}}>Get markdown</button>
     <MDXEditor ref={ref} markdown={markdown} plugins={[headingsPlugin(), thematicBreakPlugin(), toolbarPlugin({
           toolbarClassName: 'my-classname',
           toolbarContents: () => (
