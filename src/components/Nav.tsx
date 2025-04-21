@@ -12,6 +12,7 @@ import { Avatar } from 'primereact/avatar';
 import { Menu } from 'primereact/menu';
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {Toast} from 'primereact/toast'
 
 export default function Nav() {
     const items: MenuItem[] = [
@@ -83,6 +84,11 @@ export default function Nav() {
     const navigate = useNavigate();
     const [cookie, setCookies, removeCookie] = useCookies(["access_token"]);
     const [loading, setLoading] = useState(false);
+    const toast = useRef<Toast>(null);
+    const show = () => {
+        toast.current?.show({ severity: 'success', summary: 'Login Successful', detail: `Welcome ${localStorage.getItem('username')}!`, closable:false });
+    };
+
 
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
@@ -93,6 +99,7 @@ export default function Nav() {
             localStorage.setItem('email', res.data.user.email)
             localStorage.setItem('image', res.data.user.image)
             setLoading(false);
+            show();
           }).catch((err)=>{
             console.error(err);
           })
@@ -135,7 +142,6 @@ export default function Nav() {
     const menuRight = useRef<Menu>(null);
 
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 824px)'})
-    // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     const start = <div style={{display:"flex", alignItems:"center"}}>
         <Link to={"/#"}>
@@ -160,6 +166,8 @@ export default function Nav() {
     
     return (
         <div className="card">
+            <Toast ref={toast} position='top-center'/>
+
             <MegaMenu model={items} start={start} end={end}  orientation="horizontal" breakpoint="960px" />
         </div>
     )
