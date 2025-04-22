@@ -3,7 +3,7 @@ import BookPage from './pages/BookPage';
 import HomePage from './pages/HomePage';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ReadPage from './pages/ReadPage';
-import WritePage from './pages/WritePage';
+// import WritePage from './pages/WritePage';
 import './App.css'
 import CreateBookPage from './pages/CreateBookPage';
 
