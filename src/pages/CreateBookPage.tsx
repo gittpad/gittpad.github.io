@@ -5,6 +5,7 @@ import { MultiSelect } from 'primereact/multiselect';
 import {Chips, ChipsChangeEvent} from 'primereact/chips';
 import { Dropdown } from 'primereact/dropdown';
 import { ToggleButton } from 'primereact/togglebutton';
+import { Button } from 'primereact/button';
 
 
 function CreateBookPage() {
@@ -48,6 +49,11 @@ function CreateBookPage() {
         {name: 'Adult (25+ years of age)'}
     ]
 
+    const matureGuideline = [
+        'Your story is appropriate for all audiences. The Wattpad community has the ability to rate your story Mature. For more info, please read Wattpad’s Content Guidelines: https://www.gittpad.com/guidelines',
+        'Your story contains graphic depictions of violence, sexuality, strong language, and/or other mature themes. For more info, please read Wattpad’s Content Guidelines: https://www.gittpad.com/guidelines'
+    ]
+
     const optional = <span style={{color:'grey', fontStyle:'italic', fontSize:'smaller'}}>(optional)</span>;
 
     const panelFooterTemplate = () => {
@@ -82,7 +88,7 @@ function CreateBookPage() {
             
             <h4 style={{marginBlock:'8px'}}>Category *</h4>
             <MultiSelect selectionLimit={3} style={{width:'100%'}} value={selectedCategory} options={categories} onChange={(e) => {console.log(e.value); setSelectedCategory(e.value)}} optionLabel="name" 
-    placeholder="Select Countries" panelFooterTemplate={panelFooterTemplate} className="w-full md:w-20rem" display="chip" />
+    placeholder="Select Category" panelFooterTemplate={panelFooterTemplate} className="w-full md:w-20rem" display="chip" />
             <br /><br />
             <h4 style={{marginTop:'8px'}}>Tags {optional}</h4>
             <p style={{color:'grey', fontStyle:'italic', fontSize:'smaller', marginBlock:'4px'}}>enter , separated values</p>
@@ -99,18 +105,27 @@ function CreateBookPage() {
             <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
             <h3 style={{color:'grey'}}>Mature: </h3>
             <ToggleButton 
+            color='red'
             checked={mature}
             pt={{
                 box:{
-                    style:{padding:'8px 12px', width:'6rem'}
+                    style:{padding:'8px 12px', width:'6rem', background: mature ? 'grey':'white'}
                 }
             
             }} 
             onChange={(e) => setMature(e.value)} />
 
             </div>
-            <p style={{color:'grey', fontStyle:'italic'}}>Your story is appropriate for all audiences. The Wattpad community has the ability to rate your story Mature. For more info, please read Wattpad’s Content Guidelines: https://www.gittpad.com/guidelines</p>
-            
+            <p style={{color:'grey', fontStyle:'italic', fontSize:'smaller'}}>{mature ? matureGuideline[1] : matureGuideline[0]}</p>
+
+            <br />
+            <br />
+            <hr />
+            <div style={{display:'flex', flexDirection:'column', alignItems:'end'}}>
+                <Button style={{width:'10rem'}} size="small" icon='pi pi-angle-right' iconPos="right" label="Create Story" severity="success" />
+
+            </div>
+ 
         </div>
     </div>
   )
