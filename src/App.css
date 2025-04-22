@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
+h1,h2,h3,h4, p{
+    margin: 0;
+    padding: 0;
+}
+
 .my-toolbar{
     /* background: #c1b8a2; */
     border: 1px dashed black;
@@ -9,3 +14,4 @@
     font-family:"Libre Baskerville", serif;
     font-size: smaller;
 }
+

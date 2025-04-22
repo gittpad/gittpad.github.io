@@ -114,7 +114,7 @@ export default function Nav() {
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
             setLoading(true);
-          axios.get(`https://gittpad-api.vercel.app/auth?code=${tokenResponse['access_token']}`).then((res)=>{
+          axios.get(`http://localhost:3000/auth?code=${tokenResponse['access_token']}`).then((res)=>{
             setCookies('access_token', res.data.token);
             localStorage.setItem('username', res.data.user.name)
             localStorage.setItem('email', res.data.user.email)
@@ -133,13 +133,9 @@ export default function Nav() {
             style: {padding:'0'},
             items: [
                 {
-                    label: 'Log Out',
+                    label: 'My Profile',
                     style: {'fontSize':"12px"},
-                    icon: 'pi pi-sign-out',
-                    command(event) {
-                        event.originalEvent.type === 'click' && removeCookie("access_token")
-                        window.location.reload();
-                    },
+                    icon: 'pi pi-user'
                 },
                 {
                     label: 'My Books',
@@ -155,7 +151,21 @@ export default function Nav() {
                     label: 'Settings',
                     style: {'fontSize':"12px"},
                     icon: 'pi pi-cog'
-                }
+                },
+                {
+                    separator: true,
+                    style: {height:'1px', padding:'0', background:'lightgrey'},
+                    disabled:true,
+                },
+                {
+                    label: 'Log Out',
+                    style: {'fontSize':"12px"},
+                    icon: 'pi pi-sign-out',
+                    command(event) {
+                        event.originalEvent.type === 'click' && removeCookie("access_token")
+                        window.location.reload();
+                    },
+                },
             ]
         }
     ];
@@ -172,7 +182,7 @@ export default function Nav() {
     </div> 
 
     const end = <div style={{display: "flex", alignItems:"center", gap: '10px'}}>
-        <Button label={isDesktopOrLaptop ? "Create" : ""} onClick={()=>navigate('/write')} icon="pi pi-plus" severity="success"  text size='small' />
+        <Button label={isDesktopOrLaptop ? "Create" : ""} onClick={()=>navigate('/new')} icon="pi pi-plus" severity="success"  text size='small' />
         {isDesktopOrLaptop && <InputText placeholder="Search" type="text" className="w-8rem sm:w-auto p-inputtext-sm" />}
 
         {isDesktopOrLaptop || <Button severity="secondary" icon="pi pi-search" text size="small"/>}

@@ -18,7 +18,7 @@ const placeholder = <p style={{color:'gray', fontStyle:'italic'}}>unleash your i
         const data = ref.current?.getMarkdown() || "";
         console.log(data);  
         navigator.clipboard.writeText(data);
-}}>Get markdown</button>
+    }}>Get markdown</button>
         <div style={{maxWidth:'700px', minHeight: "1000px",flex:1, margin:'auto', padding:'20px', fontFamily:'"EB Garamond", serif', fontSize:'larger', background:'#ede6d4', paddingInline:'40px'}}>
 
         <MDXEditor ref={ref} placeholder={placeholder} markdown={markdown} className='main-editor' plugins={[headingsPlugin(), thematicBreakPlugin(), toolbarPlugin({
