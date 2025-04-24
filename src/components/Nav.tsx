@@ -114,7 +114,7 @@ export default function Nav() {
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
             setLoading(true);
-          axios.get(`http://localhost:3000/auth?code=${tokenResponse['access_token']}`).then((res)=>{
+          axios.get(`https://gittpad-api.vercel.app/auth?code=${tokenResponse['access_token']}`).then((res)=>{
             setCookies('access_token', res.data.token);
             localStorage.setItem('username', res.data.user.name)
             localStorage.setItem('email', res.data.user.email)

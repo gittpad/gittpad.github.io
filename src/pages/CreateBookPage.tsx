@@ -109,7 +109,7 @@ function CreateBookPage() {
             checked={mature}
             pt={{
                 box:{
-                    style:{padding:'8px 12px', width:'6rem', background: mature ? 'grey':'white'}
+                    style:{padding:'8px 12px', width:'6rem', background: mature ? 'grey':'white', border:'1px solid lightgrey'}
                 }
             
             }} 
